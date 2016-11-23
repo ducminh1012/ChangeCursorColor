@@ -11,6 +11,7 @@
 		25FA6A0E1BEA15AA00FB5EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25FA6A0D1BEA15AA00FB5EA0 /* Assets.xcassets */; };
 		25FA6A111BEA15AA00FB5EA0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25FA6A0F1BEA15AA00FB5EA0 /* MainMenu.xib */; };
 		25FA6A191BEA15CF00FB5EA0 /* CCTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25FA6A181BEA15CF00FB5EA0 /* CCTextField.swift */; };
+		3BFB5F7F1DE544A9009F3EAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BFB5F7E1DE544A9009F3EAF /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		25FA6A101BEA15AA00FB5EA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		25FA6A121BEA15AA00FB5EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25FA6A181BEA15CF00FB5EA0 /* CCTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CCTextField.swift; sourceTree = "<group>"; };
+		3BFB5F7E1DE544A9009F3EAF /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				25FA6A0D1BEA15AA00FB5EA0 /* Assets.xcassets */,
 				25FA6A0F1BEA15AA00FB5EA0 /* MainMenu.xib */,
 				25FA6A121BEA15AA00FB5EA0 /* Info.plist */,
+				3BFB5F7E1DE544A9009F3EAF /* Main.storyboard */,
 			);
 			path = ChangeCursorColor;
 			sourceTree = "<group>";
@@ -93,6 +96,7 @@
 				TargetAttributes = {
 					25FA6A071BEA15AA00FB5EA0 = {
 						CreatedOnToolsVersion = 7.1;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -119,6 +123,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BFB5F7F1DE544A9009F3EAF /* Main.storyboard in Resources */,
 				25FA6A0E1BEA15AA00FB5EA0 /* Assets.xcassets in Resources */,
 				25FA6A111BEA15AA00FB5EA0 /* MainMenu.xib in Resources */,
 			);
@@ -239,6 +244,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myke.ChangeCursorColor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -251,6 +257,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.myke.ChangeCursorColor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -273,6 +280,7 @@
 				25FA6A171BEA15AA00FB5EA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

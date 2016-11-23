@@ -29,26 +29,26 @@ class CCTextField: NSTextField {
         }
     }
     
-    override func mouseEntered(theEvent: NSEvent) {
-        super.mouseEntered(theEvent)
+    override func mouseEntered(with theEvent: NSEvent) {
+        super.mouseEntered(with: theEvent)
         self.mouseIn = true
         
         customizeCaretColor()
     }
 
-    override func mouseExited(theEvent: NSEvent) {
-        super.mouseExited(theEvent)
+    override func mouseExited(with theEvent: NSEvent) {
+        super.mouseExited(with: theEvent)
         self.mouseIn = false
     }
 
-    override func mouseMoved(theEvent: NSEvent) {
+    override func mouseMoved(with theEvent: NSEvent) {
         if self.mouseIn {
             myColorCursor?.set()
         }
-        super.mouseMoved(theEvent)
+        super.mouseMoved(with: theEvent)
     }
     
-    func setArea(areaToSet: NSTrackingArea?)
+    func setArea(_ areaToSet: NSTrackingArea?)
     {
         if let formerArea = trackingArea {
             self.removeTrackingArea(formerArea)
@@ -61,21 +61,23 @@ class CCTextField: NSTextField {
     }
 
     func customizeCaretColor() {
+        
         // change the insertion caret to another color
-        let fieldEditor = self.window?.fieldEditor(true, forObject: self) as! NSTextView
-
-        fieldEditor.insertionPointColor = NSColor.redColor()
+        if let fieldEditor = self.superview?.window?.fieldEditor(true, for: self) as? NSTextView{//self.window?.fieldEditor(true, for: self) as! NSTextView
+            fieldEditor.insertionPointColor = NSColor.red
+            
+        }
     }
     
     override func becomeFirstResponder() -> Bool {
         let rect = self.bounds
-        let trackingArea = NSTrackingArea.init(rect: rect, options: [NSTrackingAreaOptions.MouseEnteredAndExited, NSTrackingAreaOptions.ActiveAlways], owner: self, userInfo: nil)
+        let trackingArea = NSTrackingArea.init(rect: rect, options: [NSTrackingAreaOptions.mouseEnteredAndExited, NSTrackingAreaOptions.activeAlways], owner: self, userInfo: nil)
         
         // keep track of where the mouse is within our text field
         self.setArea(trackingArea)
         
         if let ev = NSApp.currentEvent {
-            if NSPointInRect(self.convertPoint(ev.locationInWindow, fromView: nil), self.bounds) {
+            if NSPointInRect(self.convert(ev.locationInWindow, from: nil), self.bounds) {
                 self.mouseIn = true
                 myColorCursor?.set()
             }
