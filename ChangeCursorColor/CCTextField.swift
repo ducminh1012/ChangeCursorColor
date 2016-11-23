@@ -9,8 +9,14 @@
 import Cocoa
 
 class CCTextField: NSTextField {
-
+    
     var myColorCursor : NSCursor?
+    var defaultCursorColor: NSColor = NSColor.black
+    var cursorColor: NSColor? {
+        didSet{
+            customizeCaretColor(color: cursorColor)
+        }
+    }
     
     var mouseIn : Bool = false
     
@@ -18,9 +24,9 @@ class CCTextField: NSTextField {
     
     override func awakeFromNib()
     {
-        myColorCursor = NSCursor.init(image: NSImage(named:"heart")!, hotSpot: NSMakePoint(0.0, 0.0))
+        myColorCursor = NSCursor()//NSCursor.init(image: NSImage(named:"heart")!, hotSpot: NSMakePoint(0.0, 0.0))
         
-        customizeCaretColor()
+        customizeCaretColor(color: cursorColor)
     }
     
     override func resetCursorRects() {
@@ -33,14 +39,14 @@ class CCTextField: NSTextField {
         super.mouseEntered(with: theEvent)
         self.mouseIn = true
         
-        customizeCaretColor()
+        customizeCaretColor(color: cursorColor)
     }
-
+    
     override func mouseExited(with theEvent: NSEvent) {
         super.mouseExited(with: theEvent)
         self.mouseIn = false
     }
-
+    
     override func mouseMoved(with theEvent: NSEvent) {
         if self.mouseIn {
             myColorCursor?.set()
@@ -59,12 +65,12 @@ class CCTextField: NSTextField {
         }
         trackingArea = areaToSet
     }
-
-    func customizeCaretColor() {
+    
+    func customizeCaretColor(color: NSColor?) {
         
         // change the insertion caret to another color
         if let fieldEditor = self.superview?.window?.fieldEditor(true, for: self) as? NSTextView{//self.window?.fieldEditor(true, for: self) as! NSTextView
-            fieldEditor.insertionPointColor = NSColor.red
+            fieldEditor.insertionPointColor = color ?? defaultCursorColor
             
         }
     }
